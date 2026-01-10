@@ -19,6 +19,6 @@ app.use("/api/v1/auth/", auth);
 app.use("/api/v1/face/", face);
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, "0.0.0.0", () => {
+app.listen(PORT, () => {
   console.log(`Application running on PORT: ${PORT}`);
 });
