@@ -205,18 +205,18 @@ export const newToken = async (req, res) => {
 export const updatePassword = async (req, res) => {
   const user = req.user;
   try {
-    const { currentPasssword, newPassword } = req.body;
+    const { currentPassword, newPassword } = req.body;
     if (
-      !currentPasssword ||
+      !currentPassword ||
       !newPassword ||
-      currentPasssword.trim() == "" ||
+      currentPassword.trim() == "" ||
       newPassword.trim() == ""
     ) {
       return res.status(400).json({
         error: "All fields must be filled",
       });
     }
-    if (currentPasssword == newPassword) {
+    if (currentPassword == newPassword) {
       return res.status(400).json({
         error: "Passwords must be Different",
       });
@@ -225,7 +225,7 @@ export const updatePassword = async (req, res) => {
       "password"
     );
     const passwordMatch = await bcrypt.compare(
-      currentPasssword,
+      currentPassword,
       userPassword.password
     );
 

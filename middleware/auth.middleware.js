@@ -36,7 +36,7 @@ export const auth = (jwt_secret = process.env.JWT_ACCESS_SECRET) => {
         user: decoded.id,
       }).select("token");
       if (!isLoggedIn || !isLoggedIn.token) {
-        return res.status(400).json({ error: "User is already logged out" });
+        return res.status(400).json({ message: "User is already logged out" });
       }
 
       req.user = user;
