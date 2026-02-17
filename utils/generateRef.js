@@ -1,4 +1,5 @@
 import crypto from "crypto";
+import logger from "./logger.js";
 
 export const generateRef = (length = 0, alphaNum = false) => {
   // if alphaNum = true generate alphanumeric code
@@ -17,4 +18,4 @@ export const generateRef = (length = 0, alphaNum = false) => {
 
   return code;
 };
-console.log(generateRef(1));
+logger.info(generateRef(1));

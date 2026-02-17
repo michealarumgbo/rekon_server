@@ -1,0 +1,14 @@
+// set up logger with custom levels from pino and pino-pretty
+import pino from "pino";
+
+const logger = pino({
+  transport: {
+    target: "pino-pretty",
+    options: {
+      colorize: true,
+      translateTime: "yyyy-mm-dd HH:MM:ss", // ISO 8601 format
+      ignore: "pid,hostname",
+    },
+  },
+});
+export default logger;

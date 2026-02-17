@@ -1,5 +1,6 @@
 import nodemailer from "nodemailer";
 import dotenv from "dotenv";
+import logger from "./logger.js";
 
 dotenv.config();
 
@@ -346,9 +347,9 @@ async function mailer(to, subject, code, name, expires_in) {
     };
 
     const info = await transporter.sendMail(mailOptions);
-    console.log("Message Sent: " + info.messageId);
+    logger.info("Message Sent: " + info.messageId);
   } catch (error) {
-    console.log("Error Found: " + error);
+    logger.info("Error Found: " + error);
     throw new Error(error);
   }
 }
